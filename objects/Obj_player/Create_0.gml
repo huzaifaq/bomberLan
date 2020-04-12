@@ -24,3 +24,4 @@ wasKilledBy = noone;
 
 //buffer = buffer_create(1024, buffer_grow, 1);
 // hello
+AddEntityToDelta(CMD_CREATE,id);

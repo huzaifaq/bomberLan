@@ -98,7 +98,7 @@ if (socket == event_id) {
 					ds_map_set(entities, e_id, p);
 				}
 				var p = entities[? e_id];
-		
+				
 				switch (c) {
 					case CMD_XY:
 						p.xTo = buffer_read(buff, buffer_s16);
@@ -154,6 +154,19 @@ if (socket == event_id) {
 							ds_map_set(entities, e_id, p);
 						} else { // Else updates its data to match server
 							
+							p.x = buffer_read(buff, buffer_s16);
+							p.y = buffer_read(buff, buffer_s16);
+				
+							p.xTo = p.x;
+							p.yTo = p.y;
+				
+							p.sprite_index = buffer_read(buff, buffer_u16);
+							p.image_speed = buffer_read(buff, buffer_u16);
+				
+							p.image_xscale = buffer_read(buff, buffer_u16);
+							p.image_yscale = buffer_read(buff, buffer_u16);
+				
+							p.name = buffer_read(buff, buffer_string);
 						}
 					break;
 				}
